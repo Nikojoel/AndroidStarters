@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="helloText">Hei Maailma</string>
+    <string name="hellobtn">Paina minua</string>
+    <string name="summerText">Moikka kesä</string>
+    <string name="changeText">Teksti vaihdettu</string>
+    <string name="dismissText">Hylkää</string>
+</resources>
