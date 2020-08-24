@@ -10,11 +10,13 @@
         android:id="@+id/helloButton"
         android:layout_width="368dp"
         android:layout_height="50dp"
+        android:background="#6B6DFA"
         android:text="@string/hellobtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helloText" />
+        app:layout_constraintTop_toBottomOf="@+id/helloText"
+        tools:targetApi="lollipop" />
 
     <TextView
         android:id="@+id/helloText"

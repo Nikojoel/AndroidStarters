@@ -1,13 +1,16 @@
 package com.example.helloworld2
 
+import android.app.ApplicationErrorReport
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.os.BatteryManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 const val CHANNEL_ID = "..."
 
 class MainActivity : AppCompatActivity() {
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun showSnack (view: View) {
         Snackbar.make(view ,R.string.changeText, Snackbar.LENGTH_LONG).setAction(R.string.dismissText) {
-            Log.d("debug", "snackbar clicked")
+            Log.d("MyLogs", "snackbar clicked")
         }.show()
     }
 
