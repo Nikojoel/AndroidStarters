@@ -2,9 +2,13 @@
     <string name="app_name" translatable="false">HelloWorld2</string>
     <string name="helloText">Hello World</string>
     <string name="two" translatable="false">2</string>
-    <string name="hellobtn">Click Me</string>
+    <string name="hellobtn">Change</string>
     <string name="summerText">Goodbye Summer</string>
     <string name="changeText">Text changed!</string>
     <string name="dismissText">Dismiss</string>
     <string name="channelName" translatable="false">123</string>
+    <string name="btOn">Bluetooth is not on</string>
+    <string name="btText">Please enable bluetooth</string>
+    <string name="notifChannel" translatable="false">Notification channel description</string>
+    <string name="actionText">Hello from action button</string>
 </resources>

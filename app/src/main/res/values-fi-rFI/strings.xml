@@ -5,4 +5,8 @@
     <string name="summerText">Moikka kesä</string>
     <string name="changeText">Teksti vaihdettu</string>
     <string name="dismissText">Hylkää</string>
+    <string name="btOn">Bluetooth ei ole päällä</string>
+    <string name="btText">Laita bluetooth päälle</string>
+    <string name="notifChannel" translatable="false">Hei action buttonista</string>
+    <string name="actionText">Hei action buttonista</string>
 </resources>
