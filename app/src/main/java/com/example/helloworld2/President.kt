@@ -7,6 +7,6 @@ class President(var name: String, var startDuty: Int, var endDuty: Int, var desc
     }
 
     override fun toString(): String {
-        return "$name $startDuty - $endDuty"
+        return "$name $startDuty-$endDuty $description"
     }
 }

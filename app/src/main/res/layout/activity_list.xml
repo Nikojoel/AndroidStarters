@@ -13,10 +13,11 @@
         android:layout_marginTop="80dp"
         android:layout_marginBottom="55dp"
         android:textSize="24sp"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/presidentList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/presidentList"
