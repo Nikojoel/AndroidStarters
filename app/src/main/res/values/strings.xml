@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">HelloWorld2</string>
+    <string name="app_name" translatable="false">ListLab</string>
     <string name="helloText">Hello World</string>
     <string name="two" translatable="false">2</string>
     <string name="hellobtn">Change</string>
