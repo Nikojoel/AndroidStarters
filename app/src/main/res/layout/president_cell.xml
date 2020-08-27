@@ -6,21 +6,21 @@
         android:orientation="vertical"
         >
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="name" />
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nameText" />
 
-        <TextView
-            android:id="@+id/tvStartDuty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="start" />
+    <TextView
+        android:id="@+id/tvStartDuty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/startText" />
 
-        <TextView
-            android:id="@+id/tvEndDuty"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="end" />
+    <TextView
+        android:id="@+id/tvEndDuty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/endText" />
     </LinearLayout>

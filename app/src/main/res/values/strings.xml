@@ -11,4 +11,7 @@
     <string name="btText">Please enable bluetooth</string>
     <string name="notifChannel" translatable="false">Notification channel description</string>
     <string name="actionText">Hello from action button</string>
+    <string name="nameText" translatable="false">name</string>
+    <string name="endText" translatable="false">end</string>
+    <string name="startText" translatable="false">start</string>
 </resources>

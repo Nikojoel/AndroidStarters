@@ -12,7 +12,7 @@ class WebActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web)
 
-        var name = intent.getStringExtra(EXTRA_MESSAGE)
+        val name = intent.getStringExtra(EXTRA_MESSAGE)?.replace(" ", "_")
         Log.d("MyLogs", name.toString())
 
         webWiki.webViewClient = object : WebViewClient() {
@@ -21,8 +21,7 @@ class WebActivity : AppCompatActivity() {
                 return true
             }
         }
-        name = name?.replace(" ", "_")
-        webWiki.loadUrl("https://wikipedia.fi/wiki/${name}")
+        webWiki.loadUrl("https://wikipedia.fi/wiki/$name")
     }
 
 
