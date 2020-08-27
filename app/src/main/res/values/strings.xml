@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">ListLab</string>
+    <string name="app_name" translatable="false">Android Labs</string>
     <string name="helloText">Hello World</string>
     <string name="two" translatable="false">2</string>
     <string name="hellobtn">Change</string>
@@ -14,5 +14,6 @@
     <string name="nameText" translatable="false">name</string>
     <string name="endText" translatable="false">end</string>
     <string name="startText" translatable="false">start</string>
-    <string name="dTextFile" translatable="false">This will display a text file</string>
+    <string name="dTextFile" translatable="false">This will display a text file using Threads</string>
+    <string name="coroutineText" translatable="false">This will display an image using coroutines</string>
 </resources>

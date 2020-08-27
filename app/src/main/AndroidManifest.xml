@@ -17,8 +17,9 @@
         <activity
             android:name=".WebActivity"
             android:parentActivityName=".ListActivity" />
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".ThreadActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ThreadActivity"/>
+        <activity android:name=".CoroutineActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
