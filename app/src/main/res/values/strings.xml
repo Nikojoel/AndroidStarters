@@ -14,4 +14,5 @@
     <string name="nameText" translatable="false">name</string>
     <string name="endText" translatable="false">end</string>
     <string name="startText" translatable="false">start</string>
+    <string name="dTextFile" translatable="false">This will display a text file</string>
 </resources>

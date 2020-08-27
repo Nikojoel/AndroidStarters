@@ -5,6 +5,7 @@
     <uses-permission
         android:name="android.permission.INTERNET"
         android:required="false" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:allowBackup="true"
@@ -15,10 +16,9 @@
         android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
         <activity
             android:name=".WebActivity"
-            android:parentActivityName=".ListActivity">
-        </activity>
-        <activity android:name=".ListActivity">
-
+            android:parentActivityName=".ListActivity" />
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".ThreadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
