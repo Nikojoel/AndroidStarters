@@ -2,12 +2,11 @@ package com.example.helloworld2
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import kotlinx.android.synthetic.main.activity_coroutine.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.net.URL
@@ -21,8 +20,7 @@ class CoroutineActivity : AppCompatActivity() {
 
         coroutineButton.setOnClickListener {
             lifecycleScope.launch(Dispatchers.Main) {
-                val img = async(Dispatchers.IO) {getImg(imgUrl)}
-                showRes(img.await())
+                showRes(withContext(Dispatchers.IO){getImg(imgUrl)})
             }
         }
     }
