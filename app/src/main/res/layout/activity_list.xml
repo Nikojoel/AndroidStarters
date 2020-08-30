@@ -10,22 +10,35 @@
         android:id="@+id/singleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="55dp"
-        android:textSize="24sp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="21dp"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/presidentList"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/hitsText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/hitsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/presidentList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/singleText"
+        tools:visibility="gone" />
 
     <ListView
         android:id="@+id/presidentList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="78dp"
+        android:layout_marginBottom="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/singleText" />
+        app:layout_constraintTop_toBottomOf="@+id/hitsText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

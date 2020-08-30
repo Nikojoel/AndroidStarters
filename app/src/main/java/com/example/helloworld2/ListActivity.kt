@@ -4,24 +4,43 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_list.*
-import kotlinx.android.synthetic.main.president_cell.*
 import kotlinx.android.synthetic.main.president_cell.view.*
 
 const val EXTRA_MESSAGE = "president data"
+const val log = "MyLogs"
 
 class ListActivity : AppCompatActivity() {
+
+    lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
+        hitsText.visibility = View.GONE
 
         val adapter = PresidentListAdapter(this, PresidentModel.presidents)
         presidentList.adapter = adapter
+
+        // Init
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        // Observe
+        viewModel.data.observe(this) {
+            Log.d(log, it.query?.searchinfo?.totalhits.toString())
+            setHitText(it.query?.searchinfo?.totalhits.toString())
+            hitsText.visibility = View.VISIBLE
+        }
+    }
+
+    private fun setHitText(text: String) {
+        hitsText.text = "Hits: $text"
     }
 
     private fun startIntent(url: String) {
@@ -61,6 +80,7 @@ class ListActivity : AppCompatActivity() {
 
             row.setOnClickListener {
                 singleText.text = president.toString()
+                viewModel.changePresident(president.name)
             }
 
             row.setOnLongClickListener {

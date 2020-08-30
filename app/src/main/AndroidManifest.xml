@@ -14,12 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
-        <activity
-            android:name=".WebActivity"
-            android:parentActivityName=".ListActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ThreadActivity"/>
-        <activity android:name=".CoroutineActivity">
+        <activity
+            android:name=".WebActivity"
+            android:parentActivityName=".ListActivity">
+        </activity>
+        <activity android:name=".ListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
