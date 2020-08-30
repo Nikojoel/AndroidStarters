@@ -1,6 +1,5 @@
 package com.example.helloworld2
 
-import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 
@@ -11,17 +10,15 @@ class WebServiceRepository {
 
 class MainViewModel : ViewModel() {
     private val repository: WebServiceRepository = WebServiceRepository()
-    var president = ""
+    private val presidents = MutableLiveData<String>()
 
     fun changePresident(pres: String) {
-        president = pres
-        Log.d("MyLogs", "after change $president")
+        presidents.value = pres
     }
 
-    val data = liveData(Dispatchers.IO) {
-        Log.d("MyLogs", "in data $president")
-        Log.d("MyLogs", "launch in data")
-        val retrievedData = repository.getPresident(president)
-        emit(retrievedData)
+    val data = presidents.switchMap {
+        liveData(Dispatchers.IO) {
+            emit(repository.getPresident(it))
+        }
     }
 }

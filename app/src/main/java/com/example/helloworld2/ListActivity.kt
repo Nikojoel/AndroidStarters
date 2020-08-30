@@ -23,6 +23,7 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
+        hitsText.visibility = View.GONE
 
         val adapter = PresidentListAdapter(this, PresidentModel.presidents)
         presidentList.adapter = adapter
@@ -34,6 +35,7 @@ class ListActivity : AppCompatActivity() {
         viewModel.data.observe(this) {
             Log.d(log, it.query?.searchinfo?.totalhits.toString())
             setHitText(it.query?.searchinfo?.totalhits.toString())
+            hitsText.visibility = View.VISIBLE
         }
     }
 
@@ -79,7 +81,6 @@ class ListActivity : AppCompatActivity() {
             row.setOnClickListener {
                 singleText.text = president.toString()
                 viewModel.changePresident(president.name)
-                //setHitText(withContext(Dispatchers.IO){viewModel.repository.getPresident(president.name).toString()})
             }
 
             row.setOnLongClickListener {
