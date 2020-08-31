@@ -16,4 +16,5 @@
     <string name="startText" translatable="false">start</string>
     <string name="dTextFile" translatable="false">This will display a text file using Threads</string>
     <string name="coroutineText" translatable="false">This will display an image using coroutines</string>
+    <string name="locText" translatable="false">Get location</string>
 </resources>

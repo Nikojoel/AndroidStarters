@@ -2,10 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.helloworld2">
 
+    <!--Permissions-->
     <uses-permission
         android:name="android.permission.INTERNET"
         android:required="false" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+
+    <!--Features-->
+    <uses-feature
+        android:name="android.hardware.location.gps"/>
+    <uses-feature
+        android:name="android.hardware.location.network"/>
 
     <application
         android:allowBackup="true"
@@ -14,13 +25,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar">
+        <activity android:name=".ListActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".ThreadActivity"/>
+        <activity android:name=".ThreadActivity" />
         <activity
             android:name=".WebActivity"
-            android:parentActivityName=".ListActivity">
-        </activity>
-        <activity android:name=".ListActivity">
+            android:parentActivityName=".ListActivity" />
+        <activity android:name=".MapActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
