@@ -17,4 +17,10 @@
     <string name="dTextFile" translatable="false">This will display a text file using Threads</string>
     <string name="coroutineText" translatable="false">This will display an image using coroutines</string>
     <string name="locText" translatable="false">Get location</string>
+    <string name="nearText" translatable="false">Something is near...</string>
+    <string name="closeText" translatable="false">Nothing is close</string>
+    <string name="locationTextFormat" translatable="false">Origin latitude: %1f \n and longitude: %2f</string>
+    <string name="distanceTextFormat" translatable="false">Distance from origin: %1d km</string>
+    <string name="messageTextFormat" translatable="false">Please enable %1s to use this app</string>
+    <string name="currentDistanceText" translatable="false">Current latitude: %1f \n and longitude: %2f</string>
 </resources>

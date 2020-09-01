@@ -10,47 +10,56 @@
         android:id="@+id/distanceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="27dp"
+        android:textSize="14sp"
         android:visibility="gone"
-        android:layout_marginStart="13dp"
-        android:layout_marginLeft="13dp"
-        android:layout_marginBottom="26dp"
-        android:text="@string/app_name"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/locButton"
-        app:layout_constraintStart_toStartOf="@+id/locButton"
+        app:layout_constraintBottom_toTopOf="@+id/mapView"
+        app:layout_constraintStart_toStartOf="@+id/currentDistanceText"
+        app:layout_constraintTop_toBottomOf="@+id/currentDistanceText" />
+
+    <TextView
+        android:id="@+id/currentDistanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/distanceText"
+        app:layout_constraintStart_toStartOf="@+id/locationText"
         app:layout_constraintTop_toBottomOf="@+id/locationText" />
 
     <TextView
         android:id="@+id/locationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="39dp"
-        android:text="@string/app_name"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/distanceText"
-        app:layout_constraintStart_toStartOf="@+id/distanceText"
+        android:layout_marginBottom="21dp"
+        android:textSize="14sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/currentDistanceText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <org.osmdroid.views.MapView
         android:id="@+id/mapView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="113dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/locButton" />
-
-    <Button
-        android:id="@+id/locButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="51dp"
-        android:text="@string/locText"
-        app:layout_constraintBottom_toTopOf="@+id/mapView"
+        android:layout_marginBottom="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/locButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/distanceText" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/locButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="41dp"
+        android:layout_marginRight="41dp"
+        android:layout_marginBottom="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mapView"
+        app:srcCompat="@android:drawable/ic_input_add" />
 </androidx.constraintlayout.widget.ConstraintLayout>

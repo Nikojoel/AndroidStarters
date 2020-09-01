@@ -33,6 +33,7 @@ class MapActivity : AppCompatActivity() {
     @SuppressLint("MissingPermission")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val ctx = applicationContext
         Configuration.getInstance().load(ctx,
             PreferenceManager.getDefaultSharedPreferences(ctx))
@@ -78,7 +79,7 @@ class MapActivity : AppCompatActivity() {
     }
 
     private fun alert(message: String) {
-        AlertDialog.Builder(this).setMessage("Please enable $message to use this app")
+        AlertDialog.Builder(this).setMessage(getString(R.string.messageTextFormat, message))
             .setPositiveButton("Enable") { _, _ ->
                 requestPermissions()
             }.create().show()
@@ -101,12 +102,14 @@ class MapActivity : AppCompatActivity() {
                     lateLocation = location
                     first = true
                 }
-                locationText.text = "Current latitude: ${lateLocation.latitude}\n and longitude: ${lateLocation.longitude}"
-                distanceText.text = "Distance: ${lateLocation.distanceTo(location).roundToInt() / 1000}km"
-            }
+                locationText.text = getString(R.string.locationTextFormat, lateLocation.latitude, lateLocation.longitude)
+                currentDistanceText.text = getString(R.string.currentDistanceText, location.latitude, location.longitude)
+                distanceText.text = getString(R.string.distanceTextFormat, lateLocation.distanceTo(location).roundToInt() / 1000)
 
+            }
             distanceText.visibility = View.VISIBLE
             locationText.visibility = View.VISIBLE
+            currentDistanceText.visibility = View.VISIBLE
             setMarker(locationResult.locations[0].latitude, locationResult.locations[0].longitude)
 
         }
