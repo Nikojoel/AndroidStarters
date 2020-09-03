@@ -114,12 +114,7 @@ class BlueToothActivity : AppCompatActivity() {
         }
 
         private fun addScanResult(result: ScanResult) {
-            val device = result.device
-            val deviceAddress = device.address
             scanResults?.set(result.device.address, result)
-            btText.text = "Found ${scanResults!!.size} devices"
-            //Log.d(log, "Whole result: $result")
-            //Log.d(log, "Device address: $deviceAddress (${result.isConnectable})")
         }
     }
 }
