@@ -5,4 +5,5 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="mainBlue">#1B32B5</color>
     <color name="secondaryBlue">#00BCD4</color>
+    <color name="greyedOut">#34000000</color>
 </resources>

@@ -23,4 +23,8 @@
     <string name="distanceTextFormat" translatable="false">Distance from origin: %1d km</string>
     <string name="messageTextFormat" translatable="false">Please enable %1s to use this app</string>
     <string name="currentDistanceText" translatable="false">Current latitude: %1f \n and longitude: %2f</string>
+    <string name="scanText" translatable="false">Scanning...</string>
+    <string name="btdText" translatable="false">Device name</string>
+    <string name="btdMacText" translatable="false">MAC address</string>
+    <string name="btdRsText" translatable="false">RSSI</string>
 </resources>
