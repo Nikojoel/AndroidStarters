@@ -1,6 +1,7 @@
 package com.example.helloworld2
 
 import android.annotation.SuppressLint
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.ScanResult
 import android.content.Context
 import android.graphics.Color
@@ -13,7 +14,7 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.bt_cell.view.*
 
-class RecyclerViewAdapter(private val context: Context, private val scanResults: HashMap<String, ScanResult>?, private val keys: MutableList<String>) : RecyclerView.Adapter<ViewHolder>() {
+class RecyclerViewAdapter(private val context: Context, private val scanResults: HashMap<String, ScanResult>?, private val keys: MutableList<String>, private val btViewModel: BtViewModel) : RecyclerView.Adapter<ViewHolder>() {
 
     // Inflates the itemView
     override fun onCreateViewHolder(vg: ViewGroup, vt: Int): ViewHolder {
@@ -40,6 +41,10 @@ class RecyclerViewAdapter(private val context: Context, private val scanResults:
             vh.itemView.btdMac.text = result.device.address
             vh.itemView.btdRs.text = "${result.rssi}dBm"
             Log.d("MyLogs", "${result.isConnectable}")
+
+            vh.itemView.setOnClickListener{
+                result.device.connectGatt(context, false, GattClientCallback(btViewModel), BluetoothDevice.TRANSPORT_LE)
+            }
         }
     }
 }

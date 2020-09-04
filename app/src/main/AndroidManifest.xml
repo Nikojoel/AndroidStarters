@@ -32,7 +32,7 @@
             android:resource="@xml/file_paths">
             </meta-data>
         </provider>
-        <activity android:name=".BlueToothActivity" />
+        <activity android:name=".CameraActivity" />
         <activity android:name=".MapActivity" />
         <activity android:name=".SensorActivity" />
         <activity android:name=".ListActivity" />
@@ -41,7 +41,7 @@
         <activity
             android:name=".WebActivity"
             android:parentActivityName=".ListActivity" />
-        <activity android:name=".CameraActivity">
+        <activity android:name=".BlueToothActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
