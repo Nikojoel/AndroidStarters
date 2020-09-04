@@ -2,6 +2,7 @@ package com.example.helloworld2
 
 import android.Manifest
 import android.bluetooth.BluetoothAdapter
+import android.bluetooth.BluetoothDevice
 import android.bluetooth.BluetoothManager
 import android.bluetooth.le.ScanCallback
 import android.bluetooth.le.ScanFilter
@@ -16,6 +17,7 @@ import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_blue_tooth.*
 
@@ -26,6 +28,7 @@ class BlueToothActivity : AppCompatActivity() {
     private var scanResults: HashMap<String, ScanResult>? = HashMap()
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private var keys = mutableListOf<String>()
+    private lateinit var viewModel: BtViewModel
 
     companion object {
         const val SCAN_PERIOD: Long = 3000
@@ -36,8 +39,17 @@ class BlueToothActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blue_tooth)
 
+        viewModel = ViewModelProvider(this).get(BtViewModel::class.java)
+
+        viewModel.data.observe(this) {
+            hrText.text = "${it}bpm"
+            hrText.visibility = View.VISIBLE
+            hrProgBar.visibility = View.VISIBLE
+        }
+
         val btManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
         btAdapter = btManager.adapter
+
         hasPermissions()
 
         // Sets adapter and layout manager for the recycler view
@@ -48,12 +60,13 @@ class BlueToothActivity : AppCompatActivity() {
             btText.visibility = View.VISIBLE
             startScanning()
         }
+        hrText.visibility = View.GONE
     }
 
     private fun initRecycler() {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@BlueToothActivity)
-            recyclerViewAdapter = RecyclerViewAdapter(this@BlueToothActivity, scanResults!!, keys)
+            recyclerViewAdapter = RecyclerViewAdapter(this@BlueToothActivity, scanResults!!, keys, viewModel)
             adapter = recyclerViewAdapter
         }
     }
@@ -93,7 +106,6 @@ class BlueToothActivity : AppCompatActivity() {
             }
             recyclerViewAdapter.notifyDataSetChanged()
         }, SCAN_PERIOD)
-
         bluetoothScanner!!.startScan(filter, settings, scanCallBack)
     }
 
