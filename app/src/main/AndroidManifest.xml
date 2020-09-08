@@ -41,10 +41,11 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".ThreadActivity" />
         <activity android:name=".BlueToothActivity" />
+        <activity android:name=".DataBaseActivity" />
         <activity
             android:name=".WebActivity"
             android:parentActivityName=".ListActivity" />
-        <activity android:name=".DataBaseActivity">
+        <activity android:name=".StorageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
