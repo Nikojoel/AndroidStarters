@@ -9,6 +9,7 @@ import android.bluetooth.le.ScanFilter
 import android.bluetooth.le.ScanResult
 import android.bluetooth.le.ScanSettings
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -21,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_blue_tooth.*
 
+const val DATA_MESSAGE = "GraphData"
 @RequiresApi(Build.VERSION_CODES.O)
 class BlueToothActivity : AppCompatActivity() {
 
@@ -29,6 +31,7 @@ class BlueToothActivity : AppCompatActivity() {
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private var keys = mutableListOf<String>()
     private lateinit var viewModel: BtViewModel
+    private var dataPoints = mutableListOf<Int>()
 
     companion object {
         const val SCAN_PERIOD: Long = 3000
@@ -40,11 +43,20 @@ class BlueToothActivity : AppCompatActivity() {
         setContentView(R.layout.activity_blue_tooth)
 
         viewModel = ViewModelProvider(this).get(BtViewModel::class.java)
-
+        graphButton.visibility = View.GONE
         viewModel.data.observe(this) {
             hrText.text = "${it}bpm"
             hrText.visibility = View.VISIBLE
             hrProgBar.visibility = View.VISIBLE
+            graphButton.visibility = View.VISIBLE
+            dataPoints.add(dataPoints.size, it)
+        }
+
+        graphButton.setOnClickListener {
+            val intent = Intent(this, GraphActivity::class.java).apply {
+                putExtra(DATA_MESSAGE, dataPoints.toIntArray())
+            }
+            startActivity(intent)
         }
 
         val btManager = getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager
