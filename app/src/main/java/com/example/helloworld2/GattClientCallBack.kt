@@ -67,15 +67,15 @@ class GattClientCallback(private val viewModel: BtViewModel): BluetoothGattCallb
     }
     override fun onCharacteristicChanged(gatt: BluetoothGatt, characteristic: BluetoothGattCharacteristic) {
         val heartRate = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, 1)
-        viewModel.changeHr(heartRate.toString())
+        viewModel.changeHr(heartRate)
         Log.d("DBG", String.format("Received heart rate: %d", heartRate))
     }
 }
 
 class BtViewModel: ViewModel() {
-    private val heartRate = MutableLiveData<String>()
+    private val heartRate = MutableLiveData<Int>()
 
-    fun changeHr(hr: String) {
+    fun changeHr(hr: Int) {
         heartRate.postValue(hr)
     }
 
